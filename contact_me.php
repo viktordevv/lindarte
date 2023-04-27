@@ -1,26 +1,27 @@
 <?php
-// Revisa si los campos están vacíos
-if(empty($_POST['name'])  		||
-   empty($_POST['email']) 		||
-   empty($_POST['phone']) 		||
-   empty($_POST['message'])	||
-   !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
-   {
-	echo "No arguments Provided!";
-	return false;
-   }
-	
-$name = strip_tags(htmlspecialchars($_POST['name']));
-$email_address = strip_tags(htmlspecialchars($_POST['email']));
-$phone = strip_tags(htmlspecialchars($_POST['phone']));
-$message = strip_tags(htmlspecialchars($_POST['message']));
-	
-// Crea el mensaje que va a enviar
-$to = 'pvt.vikr@gmail.com'; // //Añada su dirección de correo electrónico reemplazando suNombre@suDominio.com - Aquí es donde el formulario enviará un mensaje. Puede ser @gmail.com
-$email_subject = "Formulario web enviado por:  $name";
-$email_body = "Ha recibido un nuevo mensaje de su formulario de contacto del sitio web.\n\n"."Aquí están los detalles:\n\nNombre: $name\n\nEmail: $email_address\n\nTeléfono: $phone\n\nMensaje:\n$message";
-$headers = "From: support@lindartecontractor.com\n";// Esta es la dirección de correo electrónico de la que se generará el mensaje. DEBE TENER EL DOMINIO DONDE ESTÁ ALOJADA LA WEB
-$headers .= "Reply-To: $email_address";	
-mail($to,$email_subject,$email_body,$headers);
-return true;			
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  require 'sendgrid-php/sendgrid-php.php';
+
+  // Recopilar información del formulario
+  $name = $_POST["name"];
+  $email = $_POST["email"];
+  $phone = $_POST["phone"];
+  $message = $_POST["message"];
+
+  $email = new \SendGrid\Mail\Mail(); 
+  $email->setFrom($email, $name);
+  $email->setSubject("New Contact Form Submission");
+  $email->addTo("pvt.vik@gmail.com", "Lindarte Contractor");
+  $email->addContent(
+    "text/plain", "Name: $name\nEmail: $email\nPhone: $phone\nMessage: $message"
+  );
+
+  $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
+  try {
+    $response = $sendgrid->send($email);
+    echo "Message sent!";
+  } catch (Exception $e) {
+    echo 'Caught exception: '. $e->getMessage() ."\n";
+  }
+}
 ?>
