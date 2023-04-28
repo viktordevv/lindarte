@@ -140,20 +140,10 @@
                         >
                       </li>
 
-                      <li class="nav-item">
-                        <a href="about.html" class="nav-link dropdown-toggle"
-                          >About</a
-                        >
-                      </li>
-
                       <li class="nav-item dropdown">
                         <a href="projects.html" class="nav-link dropdown-toggle"
                           >Projects</a
                         >
-                      </li>
-
-                      <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
                       </li>
                     </ul>
                   </div>
@@ -261,7 +251,12 @@
               <h3 class="column-title">We love to hear</h3>
               <!-- contact form works with formspree.io  -->
               <!-- contact form activation doc: https://docs.themefisher.com/constra/contact-form/ -->
-              <form id="contact-form" action="contact_me.php" method="post" role="form">
+              <form
+                id="contact-form"
+                action="sendgrid-php-main/sendgrid-php.php"
+                method="post"
+                role="form"
+              >
                 <div class="error-container"></div>
                 <div class="row">
                   <div class="col-md-4">
