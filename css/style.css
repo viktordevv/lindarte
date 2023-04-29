@@ -712,7 +712,7 @@ ul.top-info li p.info-text {
   padding: 15px 0;
 }
 .header-two .navbar-fixed {
-  background-color: #fff;
+  background-color: #edd7d7;
 }
 
 ul.navbar-nav > li > a {
@@ -728,10 +728,14 @@ ul.navbar-nav > li > a {
     margin-bottom: 15px;
   }
 }
+
+ul.navbar-nav > li.active > a,
 ul.navbar-nav > li:hover > a,
-ul.navbar-nav > li.active > a {
-  color: #4b5681 !important;
+ul.navbar-nav > li > a:hover {
+  color: #f5a20a !important;
 }
+
+
 
 /*-- Logo --*/
 .logo img {
@@ -1711,13 +1715,13 @@ ul.navbar-nav > li.header-get-a-quote:hover > a:after {
 /* Service box bg */
 .ts-service-box-bg {
   background: #252525;
-  color: #fff;
+  color: #ffb600;
   padding: 30px;
 }
 
 .ts-service-box-bg h4,
 .ts-service-box-bg h3 {
-  color: #fff;
+  color: #ffb600;
 }
 
 /* Service box 
@@ -2292,10 +2296,11 @@ img.testimonial-thumb {
   font-size: 18px;
   margin-top: 0;
   margin-bottom: 5px;
+  color: white;
 }
 
 .subscribe-call-to-acton h4 {
-  color: #fff;
+  color: #ffffff;
   font-size: 24px;
   margin: 0;
 }
@@ -2377,7 +2382,7 @@ img.testimonial-thumb {
 /*- Footer common */
 .footer {
   background-color: #0d0d0d;
-  color: #999;
+  color: #ffffff;
 }
 
 .footer-main {
@@ -2391,7 +2396,7 @@ img.testimonial-thumb {
   margin: 0 0 30px;
   padding-left: 15px;
   text-transform: uppercase;
-  color: #fff;
+  color: #ffffff;
   border-left: 3px solid #4b5681;
 }
 
@@ -2422,7 +2427,7 @@ img.testimonial-thumb {
 .footer-social ul li a i {
   display: block;
   font-size: 16px;
-  color: #999;
+  color: #ffffff;
   transition: 400ms;
   padding: 10px 13px;
 }
@@ -2442,12 +2447,12 @@ img.testimonial-thumb {
 
 .footer-widget ul.list-arrow li a,
 .footer-widget ul.list-arrow li:before {
-  color: #747474;
+  color: #ffffff;
 }
 
 .footer-widget ul.list-arrow li:hover a,
 .footer-widget ul.list-arrow li:hover {
-  color: #4b5681;
+  color: #ffffff;
 }
 
 .working-hours {
@@ -2461,8 +2466,8 @@ img.testimonial-thumb {
 /*-- Copyright --*/
 .copyright {
   background: #4b5681;
-  color: #111;
-  padding: 25px 0;
+  color: #ffffff;
+  padding: 20px 0;
   position: relative;
   z-index: 1;
   font-weight: 600;
